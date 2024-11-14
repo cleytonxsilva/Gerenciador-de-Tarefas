@@ -1,7 +1,8 @@
 FROM ubuntu:latest AS build
 
-RUN apt-get update && apt-get install -y openjdk-20-jdk maven && rm -rf /var/lib/apt/lists/*
-
+RUN apt-get update
+RUN apt-get install openjdk-20-jdk maven
+RUN rm -rf /var/lib/apt/lists/*
 
 COPY . .
 
