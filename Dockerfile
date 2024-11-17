@@ -1,8 +1,9 @@
-FROM ubuntu:latest AS build
+FROM ubuntu:22.04 AS build
 
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y openjdk-20-jdk maven && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y software-properties-common
+RUN apt-get install -y openjdk-20-jdk maven
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
